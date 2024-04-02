@@ -17,14 +17,44 @@
       text-align: justify;
     }
     .text-content {
-      height: 68px;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
       overflow: hidden;
+    }
+    .button{
+      float: right;
+      color: white;
+      background-color: #9848ff;
+      cursor: pointer;
+      border-radius: 4px;
+      padding: 0 8px;
+      clear: both;
+    }
+    .text-content::before{
+      content: '';
+      float: right;
+      height: calc(100% - 24px);
+    }
+    #exp{
+      display: none;
+    }
+    #exp:checked ~ .text-content{
+      -webkit-line-clamp: 999;
+    }
+    .button::after{
+      content:'展开'
+    }
+    #exp:checked ~ .text-content .button::after{
+      content:'收起'
     }
   </style>
 </head>
 <body>
   <div class="text-wrap">
+    <input type="checkbox" id="exp">
     <div class="text-content">
+      <label class="button" for="exp"></label>
       这是一个多行文本这是一个多行文本这是一个多行文本这是一个多行文本这是一个多行文本这是一个多行文本这是一个多行文本这是一个多行文本这是一个多行文本这是一个多行文本这是一个多行文本这是一个多行文本这是一个多行文本这是一个多行文本
     </div>
   </div>
